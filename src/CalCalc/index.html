@@ -1,0 +1,30 @@
+﻿<html>
+  <head>
+    <base href="/">
+    <title>Angular 2 QuickStart</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="wwwroot/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="wwwroot/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="wwwroot/styles.css">
+
+    <!-- Polyfill(s) for older browsers -->
+    <script src="wwwroot/lib/jquery.min.js"></script>
+    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    
+    <script src="wwwroot/lib/bootstrap.min.js"></script>
+
+    <script src="systemjs.config.js"></script>
+    <script>
+      System.import('app').catch(function(err){ console.error(err); });
+    </script>
+  </head>
+
+  <body>
+    <cal-calc>Loading...</cal-calc>
+  </body>
+</html>

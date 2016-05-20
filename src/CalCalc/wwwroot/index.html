@@ -1,0 +1,37 @@
+﻿<html>
+
+<head>
+    <base href="/">
+    <title>Calorie Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/es6-shim.min.js"></script>
+
+    <script src="lib/zone.js"></script>
+    <script src="lib/reflect.js"></script>
+    <script src="lib/system.src.js"></script>
+
+    <!-- Required for http -->
+    <!--<script src="lib/http.dev.js"></script>-->
+    <!-- Required for routing -->
+    <!--<script src="lib/router.dev.js"></script>-->
+    <script src="lib/bootstrap.min.js"></script>
+
+    <!-- 2. Configure SystemJS -->
+    <script src="systemjs.config.js"></script>
+    <script>
+        System.import('app').catch(function (err) { console.error(err); });
+    </script>
+
+</head>
+<!-- 3. Display the application -->
+
+<body>
+    <cal-calc>Loading...</cal-calc>
+</body>
+
+</html>
