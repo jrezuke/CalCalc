@@ -1,8 +1,11 @@
 ﻿<div>
     <ul class="nav nav-tabs">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Menu 1</a></li>
-        <li><a href="#">Menu 2</a></li>
-        <li><a href="#">Menu 3</a></li>
+        <li *ng-for="let tab of tabs" (click)="selectTab(tab)" [class.active]="tab.active">
+        <li class="active"><a href="#">Fluid Infusions</a></li>
+        <li><a href="#">Parenteral Nutrition</a></li>
+        <li><a href="#">Enteral Nutrition</a></li>
+        <li><a href="#">Additives</a></li>
+        <li><a href="#">Other Nutrition</a></li>
     </ul>
 </div>
+<fluid-infusions ></fluid-infusions>
