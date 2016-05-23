@@ -5,6 +5,7 @@ import {SubjectService, Subject} from './subject.service';
 import { NgForm }    from '@angular/common';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
+import { Router} from '@angular/router-deprecated';
 
 @Component({
     selector: 'subject-new',
@@ -20,10 +21,12 @@ export class SubjectNewComponent implements OnInit {
     
     _siteService: SiteService;
     _subjectService: SubjectService;
+    _router: Router;
 
-    constructor(siteService: SiteService, subjectService:SubjectService) {
+    constructor(siteService: SiteService, subjectService:SubjectService, router:Router) {
         this._siteService = siteService;
         this._subjectService = subjectService;
+        this._router = router;
     }
     
     ngOnInit(): void {
@@ -55,6 +58,7 @@ export class SubjectNewComponent implements OnInit {
             .subscribe(
             subject => this.subjectNew = subject,
             error => console.log("error", error));
-            
+
+        this._router.navigate(['/Subjects']);          
     }
 }

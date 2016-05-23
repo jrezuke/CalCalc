@@ -16,6 +16,20 @@ namespace CalorieCalculator.Migrations
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("CalCalc.Models.Dextrose.DextroseConcentration", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Concentration")
+                        .HasAnnotation("MaxLength", 10);
+
+                    b.Property<decimal>("Kcal_ml")
+                        .HasAnnotation("Relational:ColumnType", "decimal(5,2)");
+
+                    b.HasKey("Id");
+                });
+
             modelBuilder.Entity("CalorieCalculator.Models.Sites.Site", b =>
                 {
                     b.Property<int>("Id")

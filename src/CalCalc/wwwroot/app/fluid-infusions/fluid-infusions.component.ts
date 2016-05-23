@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: 'app/fluid-infusions/fluid-infusions.component.html'
 })
 export class FluidInfusionsComponent implements OnInit {
+    
     constructor() { }
 
     ngOnInit() { }

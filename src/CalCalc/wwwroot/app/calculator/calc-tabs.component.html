@@ -1,11 +1,11 @@
 ﻿<div>
     <ul class="nav nav-tabs">
-        <li *ng-for="let tab of tabs" (click)="selectTab(tab)" [class.active]="tab.active">
-        <li class="active"><a href="#">Fluid Infusions</a></li>
-        <li><a href="#">Parenteral Nutrition</a></li>
-        <li><a href="#">Enteral Nutrition</a></li>
-        <li><a href="#">Additives</a></li>
-        <li><a href="#">Other Nutrition</a></li>
+        <li *ngFor="let tab of tabs" (click)="selectTab(tab)" [class.active]="tab.active">
+            <a> {{tab.title}} </a>
+        </li>        
     </ul>
+    
+    <fluid-infusions [hidden]="activeTab!='Fluid Infusions'"></fluid-infusions>
+    <parenteral-nutrition [hidden]="activeTab!='Parenteral Nutrition'"></parenteral-nutrition>
+    
 </div>
-<fluid-infusions ></fluid-infusions>

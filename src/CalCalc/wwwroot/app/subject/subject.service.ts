@@ -36,7 +36,7 @@ export class SubjectService {
     }
 
     private handleError(error: Response) {
-        console.error(error);
+        console.error("error", error);
         return Observable.throw(error.json().error || 'Server error');
     }
 
@@ -44,7 +44,10 @@ export class SubjectService {
         if (res.status < 200 || res.status >= 300) {
             throw new Error('Bad response status: ' + res.status);
         }
-        let body = res.json();
-        return body.data || {};
+        if (res.data) {
+            let body = res.json();
+            return body.data || {};
+        }
+        return "";
     }
 }
