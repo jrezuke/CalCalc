@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CalculatorTabComponent } from './calc-tab.component'
-import { Tab } from './tab',
+import { CalculatorTabComponent } from './calc-tab.component';
+import { Tab } from './tab';
 import { FluidInfusionsComponent } from '../fluid-infusions/fluid-infusions.component';
 import { ParenteralNutritionComponent } from '../fluid-infusions/parenteral-nutrition.component';
 @Component({    
@@ -11,8 +11,7 @@ import { ParenteralNutritionComponent } from '../fluid-infusions/parenteral-nutr
 export class CalcTabsComponent implements OnInit {
     public activeTab :string;
     public tabs: Tab[];
-    public activeTab: string;
-    
+        
     constructor() { }
 
     ngOnInit() { 
@@ -24,7 +23,7 @@ export class CalcTabsComponent implements OnInit {
         this.activeTab = "Fluid Infusions";
     }
 
-    selectTab(tab: tab) {
+    selectTab(tab: Tab) {
         this.tabs.forEach((tab) => tab.active = false);
         tab.active = true;
         this.activeTab = tab.title;
