@@ -1,4 +1,4 @@
-/// <binding BeforeBuild='libs, css' Clean='cleanCss, cleanLib' />
+/// <binding BeforeBuild='libs, css, libsNg2, libsNg2InMem, libsRxjs' Clean='cleanCss, cleanLib' />
 var gulp = require('gulp');
 var rimraf = require('rimraf');
 
