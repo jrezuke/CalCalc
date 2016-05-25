@@ -22,9 +22,9 @@ namespace CalCalc.Controllers
 
         // GET: api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<DextroseConcentration> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _dbContext.DextroseConcentrations.ToList();
         }
 
         // GET api/values/5

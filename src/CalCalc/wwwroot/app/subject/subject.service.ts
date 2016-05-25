@@ -44,10 +44,10 @@ export class SubjectService {
         if (res.status < 200 || res.status >= 300) {
             throw new Error('Bad response status: ' + res.status);
         }
-        if (res.data) {
+        
             let body = res.json();
             return body.data || {};
-        }
-        return "";
+        
+        
     }
 }
