@@ -3,8 +3,7 @@
         <li *ngFor="let tab of tabs" (click)="selectTab(tab)" [class.active]="tab.active">
             <a> {{tab.title}} </a>
         </li>        
-    </ul>
-    
+    </ul>    
     <fluid-infusions [hidden]="activeTab!='Fluid Infusions'"></fluid-infusions>
     <parenteral-nutrition [hidden]="activeTab!='Parenteral Nutrition'"></parenteral-nutrition>
     
