@@ -1,4 +1,3 @@
-/// <binding BeforeBuild='libs, css, libsNg2, libsNg2InMem, libsRxjs' Clean='cleanCss, cleanLib' />
 var gulp = require('gulp');
 var rimraf = require('rimraf');
 
@@ -6,9 +5,7 @@ var paths = {
     npm: './node_modules/',
     lib: './wwwroot/lib/',
     css: './wwwroot/css/',
-    libNg2InMem: './wwwroot/lib/angular2-in-memory-web-api',
-    libNg2: './wwwroot/lib/@angular',
-    rxjs: './wwwroot/lib/rxjs'
+    libNg2: './wwwroot/libNg2/'
 }
 
 var cssNode = [
@@ -46,11 +43,11 @@ gulp.task('libs', function () {
 });
 
 gulp.task('libsRxjs', function () {
-    return gulp.src(libsRxjs).pipe(gulp.dest(paths.rxjs));
+    return gulp.src(libsRxjs).pipe(gulp.dest(paths.libNg2));
 });
 
 gulp.task('libsNg2InMem', function () {
-    return gulp.src(libsNg2InMem).pipe(gulp.dest(paths.libNg2InMem));
+    return gulp.src(libsNg2InMem).pipe(gulp.dest(paths.libNg2));
 });
 
 gulp.task('libsNg2', function () {
