@@ -1,18 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { CalculatorTabComponent } from './calc-tab.component';
 import { Tab } from './tab';
 import { FluidInfusionsComponent } from '../fluid-infusions/fluid-infusions.component';
 import { ParenteralNutritionComponent } from '../fluid-infusions/parenteral-nutrition.component';
+import { CalculatorService } from './calculator.service'
+import { DextroseConcentration } from '../fluid-infusions/dextrose-concentration'
+
 @Component({    
     selector: 'calc-tabs',
     templateUrl: '/app/calculator/calc-tabs.component.html',
-    directives: [FluidInfusionsComponent, ParenteralNutritionComponent]
+    directives: [FluidInfusionsComponent, ParenteralNutritionComponent],
+    providers: [CalculatorService]
 })
+
 export class CalcTabsComponent implements OnInit {
     public activeTab :string;
     public tabs: Tab[];
-        
-    constructor() { }
+    public dextroseConcentrations: DextroseConcentration[];
+    _calcService: CalculatorService;
+    
+    constructor(calculatorService: CalculatorService) {
+        this._calcService = calculatorService;
+     }
 
     ngOnInit() { 
         this.tabs = [{ "title": "Fluid Infusions", "active": true },
@@ -21,6 +29,9 @@ export class CalcTabsComponent implements OnInit {
             { "title": "Additives", "active": false },
             { "title": "Other Nutrition", "active": false }];
         this.activeTab = "Fluid Infusions";
+
+        this._calcService.getDextroseConecntrations()
+            .subscribe(dex => this.dextroseConcentrations)
     }
 
     selectTab(tab: Tab) {

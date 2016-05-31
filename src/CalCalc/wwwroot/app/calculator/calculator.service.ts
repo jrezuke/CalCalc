@@ -9,7 +9,7 @@ export class CalculatorService{
 
     constructor(private _http: Http) { }
 
-    getDextroseConecntrations(): Observable<Subject[]> {
+    getDextroseConecntrations(): Observable<DextroseConcentration[]> {
         return this._http.get(this._url)
             .map((response: Response) => <DextroseConcentration[]>response.json())
             .do(data => console.log("All: " + JSON.stringify(data)))

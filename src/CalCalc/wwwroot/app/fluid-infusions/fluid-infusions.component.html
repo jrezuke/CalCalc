@@ -1,1 +1,10 @@
-<h2>Fluid Infusions</h2>
+<div>
+<h2>Fluid Infusion</h2>
+<span>Select concentration: </span> &nbsp;
+        <select>
+            <option *ngFor="let dex of dextroseConcentrations" [value] = dex.id>
+                {{dex.concentration}}
+            </option>
+        </select>
+        
+</div>        

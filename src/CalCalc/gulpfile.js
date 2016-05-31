@@ -31,7 +31,7 @@ var libsRxjs = [
 ]
 
 var libsNg2InMem = [
-    paths.npm + 'angular2-in-memory-web-api/**/*'    
+    paths.npm + 'angular2-in-memory-web-api'    
 ]
 
 var libsNg2 = [    
