@@ -34,6 +34,10 @@ export class CalcTabsComponent implements OnInit {
             .subscribe(dex => this.dextroseConcentrations = dex)
     }
 
+    onSelect(dexcon: DextroseConcentration):void {
+        console.log("onSelect: ", dexcon.concentration);        
+    }
+
     selectTab(tab: Tab) {
         this.tabs.forEach((tab) => tab.active = false);
         tab.active = true;

@@ -4,14 +4,19 @@
         <form #flForm="ngForm" (ngSubmit)="onSubmit(flForm.value)">
             <div class="form-group">
                 <label for="dexconCurrent">Select concentration:</label>
-                <select #sel (change)="">
-                    <option *ngFor="let dex of dextroseConcentrations" [value] = "dexconCurrent">
+                <select [(ngModel)]="dexconCurrent" #sel (change)="onChange(sel.value)">
+                    <option *ngFor="let dex of dextroseConcentrations" [ngValue] = "dex">
                         {{dex.concentration}}
                     </option>
                 </select>
-                <button type="submit" class="btn btn-default" [disabled]="!flForm.form.valid">Submit</button>
+                <div *ngIf="dexconCurrent">Concentration - selected id: {{dexconCurrent.id}}</div>
+                
             </div>
-
+            <div class="form-group">
+                <label for="volume">Enter volume:</label>
+                <input type="text" class="form-control" required [(ngModel)] = "volume">
+            </div>
+            <button type="submit" class="btn btn-default" [disabled]="!flForm.form.valid">Submit</button>
         </form>
     </div>
 
