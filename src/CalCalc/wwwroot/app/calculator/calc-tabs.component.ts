@@ -31,7 +31,7 @@ export class CalcTabsComponent implements OnInit {
         this.activeTab = "Fluid Infusions";
 
         this._calcService.getDextroseConecntrations()
-            .subscribe(dex => this.dextroseConcentrations)
+            .subscribe(dex => this.dextroseConcentrations = dex)
     }
 
     selectTab(tab: Tab) {

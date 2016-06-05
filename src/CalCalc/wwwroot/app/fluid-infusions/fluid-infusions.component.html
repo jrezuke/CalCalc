@@ -1,10 +1,21 @@
 <div>
-<h2>Fluid Infusion</h2>
-<span>Select concentration: </span> &nbsp;
-        <select>
-            <option *ngFor="let dex of dextroseConcentrations" [value] = dex.id>
-                {{dex.concentration}}
-            </option>
-        </select>
-        
-</div>        
+    <h2>Fluid Infusion</h2>
+    <div class="row">
+        <form #flForm="ngForm" (ngSubmit)="onSubmit(flForm.value)">
+            <div class="form-group">
+                <label for="dexconCurrent">Select concentration:</label>
+                <select #sel (change)="">
+                    <option *ngFor="let dex of dextroseConcentrations" [value] = "dexconCurrent">
+                        {{dex.concentration}}
+                    </option>
+                </select>
+                <button type="submit" class="btn btn-default" [disabled]="!flForm.form.valid">Submit</button>
+            </div>
+
+        </form>
+    </div>
+
+
+
+
+</div>

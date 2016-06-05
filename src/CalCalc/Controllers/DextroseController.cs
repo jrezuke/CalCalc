@@ -24,7 +24,8 @@ namespace CalCalc.Controllers
         [HttpGet]
         public IEnumerable<DextroseConcentration> Get()
         {
-            return _dbContext.DextroseConcentrations.ToList();
+            var dexcons = _dbContext.DextroseConcentrations.ToList();
+            return dexcons;
         }
 
         // GET api/values/5

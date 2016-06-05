@@ -1,26 +1,35 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { FORM_DIRECTIVES } from '@angular/common';
 import { DextroseConcentration } from '../fluid-infusions/dextrose-concentration'
-import { CalculatorService } from '../calculator/calculator.service'
+//import { CalculatorService } from '../calculator/calculator.service'
 
 @Component({
     selector: 'fluid-infusions',
-    templateUrl: 'app/fluid-infusions/fluid-infusions.component.html'
+    templateUrl: 'app/fluid-infusions/fluid-infusions.component.html',
+    directives: [FORM_DIRECTIVES]
+    //providers: [CalculatorService]
 })
 
 export class FluidInfusionsComponent implements OnInit {
-    public dextroseConcentrations: DextroseConcentration[];  
-    _calcService: CalculatorService;
+    @Input() dextroseConcentrations: DextroseConcentration[];  
+    //_calcService: CalculatorService;
+    dexconCurrent: DextroseConcentration;
     
-    constructor(calculatorService: CalculatorService) {
-        this._calcService = calculatorService;
-        console.log("dexCons-ctor:", this.dextroseConcentrations)
+    constructor() {
+        // this._calcService = calculatorService;
+        // console.log("dexCons-ctor:", this.dextroseConcentrations)
      }
 
+    onSubmit() {
+        console.log("onSubmit: ", this.dexconCurrent);
+    } 
+    
     ngOnInit() {
-        this._calcService.getDextroseConecntrations()
-            .subscribe(dex => this.dextroseConcentrations);
+        // this._calcService.getDextroseConecntrations()
+        //     .subscribe(
+        //     dex => this.dextroseConcentrations = dex);
 
-        console.log("dexCons-onInit:", this.dextroseConcentrations)
+        // console.log("dexCons-onInit:", this.dextroseConcentrations)
      }
 
 }

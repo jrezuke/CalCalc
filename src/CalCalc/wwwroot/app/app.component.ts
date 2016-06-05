@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { HomeComponent} from './home/home.component';
 import { ActivityManagerComponent} from './activity/activity.manager.component';
 import { SubjectsManagerComponent} from './subject/subjects.manager.component';
-import {SubjectNewComponent} from './subject/subject.new.component';
-import {SubjectsListComponent} from './subject/subjects-list.component';
-import {SiteNewComponent} from './sites/site.new.component';
+import { SubjectNewComponent } from './subject/subject.new.component';
+import { SubjectsListComponent } from './subject/subjects-list.component';
+import { SiteNewComponent } from './sites/site.new.component';
 import { SubjectSelector} from './subject/subject.selector';
-import {SubjectService} from './subject/subject.service';
-import {SiteService} from './sites/site.service';
+import { SubjectService } from './subject/subject.service';
+import { SiteService } from './sites/site.service';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { EntryNewComponent} from './activity/entry.new.component';
 import { HTTP_PROVIDERS } from '@angular/http';
@@ -24,7 +24,7 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router
                 <div class='container-fluid'>
                     <a class='navbar-brand'>Calorie Calculator</a>
                     <ul class='nav navbar-nav'>
-                        <li><a [routerLink]="['/Home']">Home</a></li>
+                        <li><a [routerLink]="['/Home']">Home</a></li>                        
                         <li><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Calculator <span class="caret"></span></a> 
                             <ul class="dropdown-menu">
                                 <li><a [routerLink]="['/EntryNew']">New Entry</a></li>
@@ -48,7 +48,7 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router
     `
 })
 @RouteConfig([    
-    { path: '/', name:'Home', component: HomeComponent},
+    { path: '/', name: 'Home', component: HomeComponent },    
     { path: '/entry/new', name:'EntryNew', component: EntryNewComponent },
     { path: '/subjects', name:'Subjects', component: SubjectsListComponent },
     { path: '/subjects/new', name:'SubjectsNew', component: SubjectNewComponent },
