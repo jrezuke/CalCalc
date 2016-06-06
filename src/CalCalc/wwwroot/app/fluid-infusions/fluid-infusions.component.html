@@ -1,25 +1,44 @@
 <div>
     <h2>Fluid Infusion</h2>
     <div class="row">
-        <form #flForm="ngForm" (ngSubmit)="onSubmit(flForm.value)">
+        <div class="helpText">
+            Select the destrose concentration, enter the volume, then click add. Do this for each fluid infusion entry.
+        </div>
+        <form class="form-inline" #flForm="ngForm" (ngSubmit)="onSubmit(flForm.value)">
             <div class="form-group">
                 <label for="dexconCurrent">Select concentration:</label>
-                <select [(ngModel)]="dexconCurrent" #sel (change)="onChange(sel.value)">
+                <select [(ngModel)]="dexconCurrent" #sel (change)="onChange($event)" required>
                     <option *ngFor="let dex of dextroseConcentrations" [ngValue] = "dex">
                         {{dex.concentration}}
                     </option>
                 </select>
-                <div *ngIf="dexconCurrent">Concentration - selected id: {{dexconCurrent.id}}</div>
-                
             </div>
             <div class="form-group">
-                <label for="volume">Enter volume:</label>
+                <label for="volume">Enter volume (mL):</label>
                 <input type="text" class="form-control" required [(ngModel)] = "volume">
             </div>
-            <button type="submit" class="btn btn-default" [disabled]="!flForm.form.valid">Submit</button>
+            <button type="submit" class="btn btn-default" [disabled]="!flForm.form.valid">Add</button>
         </form>
+        
     </div>
-
+    <div class='table-responsive'>
+            <table class='table table-striped table-bordered' *ngIf='addedDexcons && addedDexcons.length'>
+                <thead>
+                    <tr>                        
+                        <th>Concentration</th>
+                        <th>Volume</th> 
+                        <th>Remove row</th>                       
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let dexcon of addedDexcons'>                        
+                        <td>{{ dexcon.dextroseConcentration.concentration | lowercase }}</td>
+                        <td>{{ dexcon.volume }}</td>
+                        <td><button><span ><i class="fa fa-camera-retro fa-3x"></i> fa-3x</span></button>  </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
 
 

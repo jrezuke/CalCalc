@@ -1,12 +1,13 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FORM_DIRECTIVES } from '@angular/common';
-import { DextroseConcentration } from '../fluid-infusions/dextrose-concentration'
+import { DextroseConcentration, AddedDextroseConcentration } from '../fluid-infusions/dextrose-concentration'
 //import { CalculatorService } from '../calculator/calculator.service'
 
 @Component({
     selector: 'fluid-infusions',
     templateUrl: 'app/fluid-infusions/fluid-infusions.component.html',
-    directives: [FORM_DIRECTIVES]
+    directives: [FORM_DIRECTIVES],
+    styleUrls: ['app/fluid-infusions/fluid-infusions.component.css'],
     //providers: [CalculatorService]
 })
 
@@ -17,7 +18,8 @@ export class FluidInfusionsComponent implements OnInit {
     //_calcService: CalculatorService;
     dexconCurrent: DextroseConcentration;
     volume: number;
-    
+    addedDexcons: AddedDextroseConcentration[];
+
     constructor() {
         // this._calcService = calculatorService;
         // console.log("dexCons-ctor:", this.dextroseConcentrations)
@@ -26,12 +28,19 @@ export class FluidInfusionsComponent implements OnInit {
     onSubmit() {
         console.log("onSubmit: ", this.dexconCurrent);
         console.log("volume: ", this.volume);
+        let adc = new AddedDextroseConcentration();
+        adc.dextroseConcentration = this.dexconCurrent;
+        adc.volume = this.volume;
+        if (!this.addedDexcons) {
+            this.addedDexcons = new Array<AddedDextroseConcentration>();
+        }
+        this.addedDexcons.push(adc);
     } 
 
-    onChange(dexcon: DextroseConcentration) {
-        console.log(dexcon.id);
-        console.log("dexconCurrent:" this.dexconCurrent);
-        this.select.emit(dexcon)
+    onChange(event) {
+        console.log("onChange: ",event);
+        console.log("onChange selected index: ",event.target.selectedIndex);    
+        //this.select.emit(dexcon)
     }
     
     ngOnInit() {
