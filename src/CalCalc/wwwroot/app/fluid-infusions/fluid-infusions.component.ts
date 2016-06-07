@@ -28,7 +28,7 @@ export class FluidInfusionsComponent implements OnInit {
     onRemove(addedDexcon, index) {
         console.log("onRemove:", addedDexcon);
         console.log("index:", index);
-        this.addedDexcons.slice(index, index + 1);
+        this.addedDexcons.splice(index, 1);
         console.log("addedDexcons:", this.addedDexcons);
     }    
     onSubmit() {
