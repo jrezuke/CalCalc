@@ -25,6 +25,12 @@ export class FluidInfusionsComponent implements OnInit {
         // console.log("dexCons-ctor:", this.dextroseConcentrations)
      }
 
+    onRemove(addedDexcon, index) {
+        console.log("onRemove:", addedDexcon);
+        console.log("index:", index);
+        this.addedDexcons.slice(index, index + 1);
+        console.log("addedDexcons:", this.addedDexcons);
+    }    
     onSubmit() {
         console.log("onSubmit: ", this.dexconCurrent);
         console.log("volume: ", this.volume);

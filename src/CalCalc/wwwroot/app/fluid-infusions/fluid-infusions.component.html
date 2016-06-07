@@ -31,10 +31,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor='let dexcon of addedDexcons'>                        
-                        <td>{{ dexcon.dextroseConcentration.concentration | lowercase }}</td>
+                    <tr *ngFor='let dexcon of addedDexcons; let i=index'>                        
+                        <td>{{ dexcon.dextroseConcentration.concentration }}</td>
                         <td>{{ dexcon.volume }}</td>
-                        <td><button><span ><i class="fa fa-camera-retro fa-3x"></i> fa-3x</span></button>  </td>
+                        <td><button (click)="onRemove(dexcon,i)"><span ><i class="fa fa-times "></i> </span></button>  </td>
                     </tr>
                 </tbody>
             </table>
