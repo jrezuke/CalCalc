@@ -19,6 +19,7 @@ _temp
 !wallaby.js
 
 lib/
+libNg2/
 css/
 
 # User-specific files

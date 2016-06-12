@@ -5,8 +5,7 @@ import { EntryNewComponent } from '../activity/entry.new.component';
 
 @Component({    
     selector: 'calc-root',
-    template: `<h3>New Caloric Entry</h3>
-                  <router-outlet></router-outlet>`,
+    template: `<router-outlet></router-outlet>`,
     directives: [ROUTER_DIRECTIVES]
 })
 

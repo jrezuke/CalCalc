@@ -1,5 +1,4 @@
-<div>
-    <h2>Fluid Infusion</h2>
+<div class="container" id="divFL">    
     <div class="row">
         <div class="helpText">
             Select the destrose concentration, enter the volume, then click add. Do this for each fluid infusion entry.
@@ -32,9 +31,9 @@
                 </thead>
                 <tbody>
                     <tr *ngFor='let dexcon of addedDexcons; let i=index'>                        
-                        <td>{{ dexcon.dextroseConcentration.concentration }}</td>
-                        <td>{{ dexcon.volume }}</td>
-                        <td><button (click)="onRemove(dexcon,i)"><span ><i class="fa fa-times "></i> </span></button>  </td>
+                        <td class="col-md-3">{{ dexcon.dextroseConcentration.concentration }}</td>
+                        <td class="col-md-3">{{ dexcon.volume }}</td>
+                        <td class="col-md-3"><button (click)="onRemove(dexcon,i)"><span ><i class="fa fa-times"></i> </span></button>  </td>
                     </tr>
                 </tbody>
             </table>
