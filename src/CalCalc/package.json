@@ -39,7 +39,8 @@
     "angular2-in-memory-web-api": "0.0.7",
     "font-awesome": "^4.5.0",
     "bootstrap": "^3.3.6",
-    "jquery": "^2.2.3"
+    "jquery": "^2.2.3",
+    "underscore": "*"
   },
   "devDependencies": {
     "concurrently": "^2.0.0",

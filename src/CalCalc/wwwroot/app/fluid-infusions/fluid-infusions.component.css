@@ -1,14 +1,18 @@
-table{
-    width:60%;
+#tblMain{
+    width:100%;
+}
+#tblTotls{
+    width:100%;
 }
 
+
 .fa-times {
-    color: red;    
+    color: red;
 }
 #divFL{
-    padding-top: 10px; 
-    margin-left: 10px;   
-    width: 675px;
+    padding-top: 10px;
+    margin-left: 10px;
+    width: 850px;
     height: 400px;
     overflow: auto;
 }

@@ -18,12 +18,13 @@ var libs = [
     paths.npm + 'zone.js/dist/zone.js',
     paths.npm + 'reflect-metadata/reflect.js',
     paths.npm + 'systemjs/dist/system.src.js',
-        
+
     //paths.npm + 'angular2/bundles/http.dev.js',
     //paths.npm + 'angular2/bundles/router.dev.js',
 
     paths.npm + 'bootstrap/dist/js/bootstrap.min.js',
-    paths.npm + 'jquery/dist/jquery.min.js'
+    paths.npm + 'jquery/dist/jquery.min.js',
+    paths.npm + 'underscore/underscore-min.js'
 ]
 
 var libsRxjs = [
@@ -31,10 +32,10 @@ var libsRxjs = [
 ]
 
 var libsNg2InMem = [
-    paths.npm + 'angular2-in-memory-web-api'    
+    paths.npm + 'angular2-in-memory-web-api'
 ]
 
-var libsNg2 = [    
+var libsNg2 = [
     paths.npm + '@angular/**/*'
 ]
 
