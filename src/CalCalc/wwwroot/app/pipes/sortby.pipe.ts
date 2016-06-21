@@ -1,12 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { AddedDextroseConcentration } from '../fluid-infusions/dextrose-concentration'
+import { FluidInfusion } from '../fluid-infusions/dextrose-concentration'
 @Pipe({
     name: 'adcsortby',
     pure: false
 })
 
 export class AdcSortbyPipe implements PipeTransform {
-    transform(value: AddedDextroseConcentration[], args: any[]): any {
+    transform(value: FluidInfusion[], args: any[]): any {
         if (value.length == 0) return value;
         value.sort((a, b) => {
             let ac = Number(a.dextroseConcentration.concentration.substr(0, a.dextroseConcentration.concentration.length - 1));

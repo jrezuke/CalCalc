@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FORM_DIRECTIVES } from '@angular/common';
-import { DextroseConcentration, AddedDextroseConcentration } from '../fluid-infusions/dextrose-concentration'
+import { DextroseConcentration, FluidInfusion } from '../fluid-infusions/dextrose-concentration'
 import { AdcSortbyPipe } from '../pipes/sortby.pipe'
-//import { CalculatorService } from '../calculator/calculator.service'
+import { CalculatorService } from '../calculator/calculator.service'
 
 export class TotalByConcentration {
     public concentration: string;
@@ -22,35 +22,35 @@ export class FluidInfusionsComponent implements OnInit {
     @Input() dextroseConcentrations: DextroseConcentration[];
     @Output() select: any = new EventEmitter();
 
-    //_calcService: CalculatorService;
+    _calcService: CalculatorService;
     dexconCurrent: DextroseConcentration;
     volume: number;
-    addedDexcons: AddedDextroseConcentration[];
+    fluidInfusions: FluidInfusion[];
     totalsByConcentration: TotalByConcentration[];
 
     constructor() {
-        // this._calcService = calculatorService;
+        this._calcService = calculatorService;
         // console.log("dexCons-ctor:", this.dextroseConcentrations)
     }
 
     onRemove(addedDexcon, index) {
         console.log("onRemove:", addedDexcon);
         console.log("index:", index);
-        this.addedDexcons.splice(index, 1);
-        console.log("addedDexcons:", this.addedDexcons);
+        this.fluidInfusions.splice(index, 1);
+        console.log("addedDexcons:", this.fluidInfusions);
         this.calculateTotals();
     }
-    
+
     onSubmit() {
         console.log("onSubmit: ", this.dexconCurrent);
         console.log("volume: ", this.volume);
-        let adc = new AddedDextroseConcentration();
+        let adc = new FluidInfusion();
         adc.dextroseConcentration = this.dexconCurrent;
         adc.volume = this.volume;
-        if (!this.addedDexcons) {
-            this.addedDexcons = new Array<AddedDextroseConcentration>();
+        if (!this.fluidInfusions) {
+            this.fluidInfusions = new Array<FluidInfusion>();
         }
-        this.addedDexcons.push(adc);
+        this.fluidInfusions.push(adc);
         this.calculateTotals();
 
         console.log("totals", this.totalsByConcentration);
@@ -58,7 +58,7 @@ export class FluidInfusionsComponent implements OnInit {
     }
 
     calculateTotals() {
-        let totals = this.addedDexcons.reduce(this.reducer, {});
+        let totals = this.fluidInfusions.reduce(this.reducer, {});
         this.totalsByConcentration = new Array<TotalByConcentration>();
 
         for (var key in totals)
@@ -73,7 +73,7 @@ export class FluidInfusionsComponent implements OnInit {
 
     }
 
-    reducer(total, dex:AddedDextroseConcentration) {
+    reducer(total, dex:FluidInfusion) {
         if (!total[dex.dextroseConcentration.concentration]) {
             total[dex.dextroseConcentration.concentration] = dex.volume;
         } else {
@@ -90,9 +90,9 @@ export class FluidInfusionsComponent implements OnInit {
     }
 
     ngOnInit() {
-        // this._calcService.getDextroseConecntrations()
-        //     .subscribe(
-        //     dex => this.dextroseConcentrations = dex);
+        this._calcService.getFluidInfusions()
+            .subscribe(
+            fi => this.fluidInfusions = fl);
 
         // console.log("dexCons-onInit:", this.dextroseConcentrations)
     }

@@ -4,7 +4,7 @@ export class DextroseConcentration {
     public kcal_ml: number;
 }
 
-export class AddedDextroseConcentration{
+export class FluidInfusion{
     public dextroseConcentration: DextroseConcentration;
     public volume: number;
 }
