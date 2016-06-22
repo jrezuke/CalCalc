@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using CalorieCalculator.Models.Sites;
+using System.ComponentModel.DataAnnotations;
 
 namespace CalorieCalculator.Models.Subjects
 {
-    public class Subject
+    public partial class Subject
     {
         public Subject()
         {
@@ -12,5 +13,6 @@ namespace CalorieCalculator.Models.Subjects
         [MaxLength(10)]
         public string SubjectId { get; set; }
         public int SiteId { get; set; }
+        public virtual Site Site { get; set; }
     }
 }
