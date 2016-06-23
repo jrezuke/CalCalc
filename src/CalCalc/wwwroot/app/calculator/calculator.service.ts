@@ -5,13 +5,17 @@ import { DextroseConcentration, FluidInfusion } from '../fluid-infusions/dextros
 
 @Injectable()
 export class CalculatorService{
-    private _url = 'http://localhost:3300/api/Dextrose';
+    private _urlDextrose = 'http://localhost:3300/api/Dextrose';
+    private _urlFluidInfusions = 'http://localhost:3300/api/FluidInfusions';
     public fluidInfusions: FluidInfusion[];
 
     constructor(private _http: Http) { }
 
     getFluidInfusions(): Observable<FluidInfusion[]>{
-        return this.fluidInfusions;
+        return this._http.get(this._urlFluidInfusions)
+            .map((response: Response) => <FluidInfusion[]>response.json())
+            .do(data => console.log("All: " + JSON.stringify(data)))
+            .catch(this.handleError);
     }
 
     addFluidInfusion(fluidInfusion:FluidInfusion) {
@@ -19,7 +23,7 @@ export class CalculatorService{
     }
 
     getDextroseConecntrations(): Observable<DextroseConcentration[]> {
-        return this._http.get(this._url)
+        return this._http.get(this._urlDextrose)
             .map((response: Response) => <DextroseConcentration[]>response.json())
             .do(data => console.log("All: " + JSON.stringify(data)))
             .catch(this.handleError);

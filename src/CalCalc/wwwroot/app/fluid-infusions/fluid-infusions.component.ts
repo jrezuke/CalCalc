@@ -28,7 +28,7 @@ export class FluidInfusionsComponent implements OnInit {
     fluidInfusions: FluidInfusion[];
     totalsByConcentration: TotalByConcentration[];
 
-    constructor() {
+    constructor(calculatorService:CalculatorService) {
         this._calcService = calculatorService;
         // console.log("dexCons-ctor:", this.dextroseConcentrations)
     }
@@ -92,7 +92,7 @@ export class FluidInfusionsComponent implements OnInit {
     ngOnInit() {
         this._calcService.getFluidInfusions()
             .subscribe(
-            fi => this.fluidInfusions = fl);
+            fi => this.fluidInfusions = fi);
 
         // console.log("dexCons-onInit:", this.dextroseConcentrations)
     }
